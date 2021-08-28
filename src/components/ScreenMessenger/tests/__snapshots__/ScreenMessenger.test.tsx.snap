@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenMessenger Should match the snapshot 1`] = `
+<Fragment>
+  <styled.div>
+    <styled.img
+      src="error.svg"
+    />
+    <styled.div>
+      <styled.div
+        test-id="primaryMessage"
+      >
+        Dummy Primary Message
+      </styled.div>
+      <styled.div
+        test-id="secondaryMessage"
+      >
+        Dummy Seconday Message
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</Fragment>
+`;

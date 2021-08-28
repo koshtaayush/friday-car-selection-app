@@ -21,6 +21,7 @@ const Search: React.FC<Props> = (props) => {
                         onChangeProp={onChangeProp}
                         inputValue={value}
                         placeHolderText={placeholder}
+                        test-id="searchInput"
                     />
                 </InputContainer>
             </TopSection>

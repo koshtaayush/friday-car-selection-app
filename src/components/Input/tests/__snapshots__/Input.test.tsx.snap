@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Should match the snapshot 1`] = `
+<Fragment>
+  <styled.input
+    onChange={[Function]}
+    placeholder="Dummy placeholder text"
+    test-id="input"
+    type="text"
+    value="Hello"
+  />
+</Fragment>
+`;

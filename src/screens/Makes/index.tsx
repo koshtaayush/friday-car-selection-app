@@ -1,27 +1,46 @@
+//Library
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { makeGet } from './../../services/api.service'
 import { useHistory } from 'react-router-dom'
+
+//Other Components
 import Search from './../../components/Search'
 import Pill from './../../components/Pill'
 import LoadingPill from './../../components/LoadingPill'
-import { FETCH_ALL_MAKES } from './../../config/api.config'
 import ScreenMessenger from './../../components/ScreenMessenger'
+
+//Functions and configs
+import { makeGet } from './../../services/api.service'
+import { FETCH_ALL_MAKES } from './../../config/api.config'
 
 interface Props {}
 
 const Makes: React.FC<Props> = () => {
+
+    //Search Value present in input field
     const [searchValue, setSearchValue] = React.useState<string>('')
+
+    //The list of makes which is fetched from API
     const [makes, setMakes] = React.useState<Array<string>>([])
+
+    //To hold error state in case API fails
     const [isError, setIsError] = React.useState<boolean>(false)
+
+    //Loading indicator to show loading screen
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
     const history = useHistory()
 
+    /**
+     * Function to handle the change in search input value and update the state
+     */
     const handleInputOnChange = (value: string) => {
         setSearchValue(value)
     }
 
+    /**
+     * Function to change the route when make pill is clicked
+     */
     const handleMakeClick = (make: string) => {
         const makeUrl = make.toLowerCase().replace(' ', '-')
         history.push(`/model?make=${makeUrl}`)
@@ -31,6 +50,10 @@ const Makes: React.FC<Props> = () => {
         fetchAllMakes()
     }, [])
 
+
+    /**
+     * Function to fetch the list of makes from API
+     */
     const fetchAllMakes = () => {
         setIsLoading(true)
         makeGet(FETCH_ALL_MAKES)

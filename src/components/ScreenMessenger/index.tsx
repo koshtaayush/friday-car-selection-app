@@ -15,8 +15,8 @@ const ScreenMessenger: React.FC<Props> = (props) => {
             <Container>
                 <Image src={error} />
                 <Messages>
-                    <PrimaryMessage>{primaryMessage}</PrimaryMessage>
-                    <SecondaryMessage>{secondaryMessage}</SecondaryMessage>
+                    <PrimaryMessage test-id="primaryMessage">{primaryMessage}</PrimaryMessage>
+                    <SecondaryMessage test-id="secondaryMessage">{secondaryMessage}</SecondaryMessage>
                 </Messages>
             </Container>
         </React.Fragment>

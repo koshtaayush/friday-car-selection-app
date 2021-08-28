@@ -1,28 +1,47 @@
+//Library
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { FETCH_ALL_MODELS } from './../../config/api.config'
 import { useHistory } from 'react-router-dom'
-import { makeGet } from './../../services/api.service'
-import { getQueryParams } from './../../utils/getQueryParams'
+
+//Other components
 import Pill from './../../components/Pill'
 import Search from './../../components/Search'
 import ScreenMessenger from './../../components/ScreenMessenger'
 import LoadingPill from './../../components/LoadingPill'
 
+//Functions and configs
+import { FETCH_ALL_MODELS } from './../../config/api.config'
+import { makeGet } from './../../services/api.service'
+import { getQueryParams } from './../../utils/getQueryParams'
+
 interface Props {}
 
 const Models: React.FC<Props> = () => {
+    
+    //Search Value present in input field
     const [searchValue, setSearchValue] = React.useState<string>('')
+
+    //The list of models which is fetched from API based on make
     const [models, setModels] = React.useState<Array<string>>([])
+
+    //To hold error state in case API fails
     const [isError, setIsError] = React.useState<boolean>(false)
+
+    //Loading indicator to show loading screen
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
     const history = useHistory()
 
+    /**
+     * Function to handle the change in search input value and update the state
+     */
     const handleInputOnChange = (value: string) => {
         setSearchValue(value)
     }
 
+    /**
+     * Function to change the route when model pill is clicked
+     */
     const handleModelClick = (value: string) => {
         const makeValue = getQueryParams(
             history.location?.search || '',
@@ -36,6 +55,9 @@ const Models: React.FC<Props> = () => {
         fetchAllModels()
     }, [])
 
+    /**
+     * Function to fetch the list of models from API based on make
+     */
     const fetchAllModels = () => {
         const makeId = getQueryParams(history.location?.search || '', 'make')
 

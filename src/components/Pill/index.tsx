@@ -11,8 +11,8 @@ const Pill: React.FC<Props> = (props) => {
     const { value, onClickProp } = props
     return (
         <React.Fragment>
-            <PillContainer onClick={() => onClickProp(value)}>
-                <Name>{value.toLowerCase()}</Name>
+            <PillContainer test-id="pillContainer" onClick={() => onClickProp(value)}>
+                <Name test-id="name">{value.toLowerCase()}</Name>
             </PillContainer>
         </React.Fragment>
     )

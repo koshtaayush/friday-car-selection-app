@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Should match the snapshot 1`] = `
+<Fragment>
+  <styled.div>
+    <styled.div>
+      Choose your car!
+    </styled.div>
+    <styled.div>
+      <Input
+        inputValue="Input Value"
+        onChangeProp={[MockFunction]}
+        placeHolderText="Placeholder text"
+        test-id="searchInput"
+      />
+    </styled.div>
+  </styled.div>
+</Fragment>
+`;

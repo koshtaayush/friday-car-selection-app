@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vehicle Should match the snapshot 1`] = `
+<Fragment>
+  <styled.div>
+    <styled.div>
+      Make: 
+    </styled.div>
+    <styled.div>
+      Model: 
+    </styled.div>
+  </styled.div>
+  <styled.div />
+  <ScreenMessenger
+    primaryMessage="No vehicles found"
+    secondaryMessage="Please try to search for another model"
+  />
+</Fragment>
+`;

@@ -1,28 +1,51 @@
+//Library
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { FETCH_VEHICLE } from './../../config/api.config'
 import { useHistory } from 'react-router-dom'
-import { makeGet } from './../../services/api.service'
-import { getQueryParams } from './../../utils/getQueryParams'
-import { IVehicle } from './../../typings/sharedInterfaces'
-import CarImg from './../../assets/car.svg'
+
+//Components
 import LoadingPill from './../../components/LoadingPill'
 import ScreenMessenger from './../../components/ScreenMessenger'
+
+//Functions and configs
+import { FETCH_VEHICLE } from './../../config/api.config'
+import { makeGet } from './../../services/api.service'
+import { getQueryParams } from './../../utils/getQueryParams'
+
+//Reusable Interface
+import { IVehicle } from './../../typings/sharedInterfaces'
+
+//Assets
+import CarImg from './../../assets/car.svg'
 
 interface Props {}
 
 const Vehicle: React.FC<Props> = () => {
+
+    //List to store vehicle list fetched from API
     const [vehicles, setVehicles] = React.useState<Array<IVehicle>>([])
+
+    //State to store make which is selected in previous steps
     const [makeSelected, setMakeSelected] = React.useState<string | null>('')
+
+    //State to store model which is selected in previous steps
     const [modelSelected, setModelSelected] = React.useState<string | null>('')
+    
+    //Loading indicator to show loading screen
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
+
+    //State to store error flag
     const [isError, setIsError] = React.useState<boolean>(false)
+
     const history = useHistory()
 
     useEffect(() => {
         fetchAllVehicleInformation()
     }, [])
 
+    /**
+     * Function to fetch the vehicle list from API
+     */
     const fetchAllVehicleInformation = () => {
         const makeValue = getQueryParams(history.location?.search || '', 'make')
         setMakeSelected(makeValue)
@@ -140,9 +163,8 @@ const InfoSelected = styled.div`
 `
 
 const CarImageContainer = styled.div`
-    /* width: 300px; */
     width: 50%;
-    height: 150px;
+    height: 9.375rem;
     margin-right: 1rem;
     @media only screen and (max-width: 600px) {
         width: 35%;
@@ -151,8 +173,7 @@ const CarImageContainer = styled.div`
 const Info = styled.div``
 
 const CarImage = styled.img`
-    height: 150px;
-    /* width: 300px; */
+    height: 9.375rem;
     width: 100%;
     object-fit: scale-down;
 `
@@ -171,12 +192,12 @@ const VehicleCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-right: 0.625rem;
+    margin-bottom: 1.25rem;
     cursor: pointer;
     min-width: 30%;
     border-color: #d3d5df;
-    box-shadow: 0 4px 7px 0 rgba(218,220,230,.6);
+    box-shadow: 0 0.25rem 0.4375rem 0 rgba(218,220,230,.6);
     padding: 1rem;
 
     @media only screen and (max-width: 600px) {
@@ -190,19 +211,18 @@ const Label = styled.div`
     justify-content: flex-start;
     
     @media only screen and (max-width: 600px) {
-        /* flex-direction: column; */
         align-items: flex-start;
 
     }
 `
 
 const Legend = styled.div`
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 `
 const Value = styled.div`
     color: #686b78;
-    font-size: 16px;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
 `

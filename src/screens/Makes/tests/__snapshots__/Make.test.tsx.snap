@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Make Should match the snapshot 1`] = `
+<Fragment>
+  <Search
+    onChangeProp={[Function]}
+    placeholder="Search for a make"
+    value=""
+  />
+  <styled.div />
+</Fragment>
+`;
