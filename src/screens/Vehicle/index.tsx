@@ -89,8 +89,8 @@ const Vehicle: React.FC<Props> = () => {
             <VehicleSection>
                 {isLoading && (
                     <>
-                        {[...Array(12)].map((e, i) => (
-                            <LoadingPill />
+                        {[...Array(12)].map((e, index) => (
+                            <LoadingPill test-id="vehicleLoadingPill" key={index}/>
                         ))}
                     </>
                 )}

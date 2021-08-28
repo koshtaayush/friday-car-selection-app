@@ -10,12 +10,65 @@ jest.mock('react-router-dom', () => ({
 }))
 
 describe('Make', () => {
-
     it('Should match the snapshot', () => {
-        const component = shallow(
-            <Make />
-        )
+        const component = shallow(<Make />)
 
         expect(component).toMatchSnapshot()
+    })
+
+    test('Should show loader when loading state is true', () => {
+        const initialStateForLoading = true
+        const initialStateForSearchValue = ''
+        const initialStateForMakes = []
+        const initialStateForIsError = false
+
+        React.useState = jest
+            .fn()
+            .mockReturnValueOnce([initialStateForLoading, {}])
+            .mockReturnValueOnce([initialStateForSearchValue, {}])
+            .mockReturnValueOnce([initialStateForMakes, {}])
+            .mockReturnValueOnce([initialStateForIsError, {}])
+
+        const component = shallow(<Make />)
+
+        expect(component.find({ 'test-id': 'makeLoadingPill' })).toHaveLength(
+            12
+        )
+    })
+
+    test('Should show loader when loading state is false', () => {
+        const initialStateForLoading = false
+        const initialStateForSearchValue = ''
+        const initialStateForMakes = []
+        const initialStateForIsError = false
+
+        React.useState = jest
+            .fn()
+            .mockReturnValueOnce([initialStateForLoading, {}])
+            .mockReturnValueOnce([initialStateForSearchValue, {}])
+            .mockReturnValueOnce([initialStateForMakes, {}])
+            .mockReturnValueOnce([initialStateForIsError, {}])
+
+        const component = shallow(<Make />)
+
+        expect(component.find({ 'test-id': 'makeLoadingPill' })).toHaveLength(0)
+    })
+
+    test('Should show error component when error comes', () => {
+        const initialStateForLoading = false
+        const initialStateForSearchValue = ''
+        const initialStateForMakes = []
+        const initialStateForIsError = true
+
+        React.useState = jest
+            .fn()
+            .mockReturnValueOnce([initialStateForLoading, {}])
+            .mockReturnValueOnce([initialStateForSearchValue, {}])
+            .mockReturnValueOnce([initialStateForMakes, {}])
+            .mockReturnValueOnce([initialStateForIsError, {}])
+
+        const component = shallow(<Make />)
+
+        expect(component.find({ 'test-id': 'makeError' })).toHaveLength(1)
     })
 })

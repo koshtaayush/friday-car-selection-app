@@ -17,6 +17,9 @@ interface Props {}
 
 const Makes: React.FC<Props> = () => {
 
+    //Loading indicator to show loading screen
+    const [isLoading, setIsLoading] = React.useState<boolean>(false)
+    
     //Search Value present in input field
     const [searchValue, setSearchValue] = React.useState<string>('')
 
@@ -25,9 +28,6 @@ const Makes: React.FC<Props> = () => {
 
     //To hold error state in case API fails
     const [isError, setIsError] = React.useState<boolean>(false)
-
-    //Loading indicator to show loading screen
-    const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
     const history = useHistory()
 
@@ -85,8 +85,8 @@ const Makes: React.FC<Props> = () => {
             <MakesSection>
                 {isLoading && (
                     <>
-                        {[...Array(12)].map((e, i) => (
-                            <LoadingPill />
+                        {[...Array(12)].map((e, index) => (
+                            <LoadingPill test-id="makeLoadingPill" key={index} />
                         ))}
                     </>
                 )}
@@ -110,6 +110,7 @@ const Makes: React.FC<Props> = () => {
 
             {isError && (
                 <ScreenMessenger
+                    test-id="makeError"
                     primaryMessage={'Oops !! An error occured'}
                     secondaryMessage={'Please try again'}
                 />
