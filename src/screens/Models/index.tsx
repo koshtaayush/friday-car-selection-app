@@ -69,7 +69,6 @@ const Models: React.FC<Props> = () => {
             .then((res) => res.json())
             .then(
                 (resp) => {
-                    console.log(resp)
                     setIsLoading(false)
 
                     setModels(resp)
@@ -77,13 +76,10 @@ const Models: React.FC<Props> = () => {
                 },
                 (err) => {
                     setIsLoading(false)
-
-                    console.log('err', err)
                     setIsError(true)
                 }
             )
             .catch((error) => {
-                console.log('Error', error)
                 setIsLoading(false)
                 setIsError(true)
             })

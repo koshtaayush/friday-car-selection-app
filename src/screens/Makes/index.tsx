@@ -60,7 +60,6 @@ const Makes: React.FC<Props> = () => {
             .then((res) => res.json())
             .then(
                 (resp) => {
-                    console.log(resp)
                     setMakes(resp)
                     setIsLoading(false)
                     setIsError(false)
@@ -68,13 +67,11 @@ const Makes: React.FC<Props> = () => {
                 (err) => {
                     setIsError(true)
                     setIsLoading(false)
-                    console.log('err', err)
                 }
             )
             .catch((error) => {
                 setIsError(true)
                 setIsLoading(false)
-                console.log('Error', error)
             })
     }
 

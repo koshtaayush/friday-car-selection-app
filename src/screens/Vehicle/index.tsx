@@ -64,7 +64,6 @@ const Vehicle: React.FC<Props> = () => {
             .then((res) => res.json())
             .then(
                 (resp) => {
-                    console.log(resp)
                     setVehicles(resp)
                     setIsLoading(false)
                     setIsError(false)
@@ -72,13 +71,11 @@ const Vehicle: React.FC<Props> = () => {
                 (err) => {
                     setIsLoading(false)
                     setIsError(true)
-                    console.log('err', err)
                 }
             )
             .catch((error) => {
                 setIsLoading(false)
                     setIsError(true)
-                console.log('Error', error)
             })
     }
 
