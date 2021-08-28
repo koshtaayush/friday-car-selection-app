@@ -12,7 +12,8 @@
     "react-scripts": "4.0.3",
     "styled-components": "4.4.0",
     "typescript": "3.9.5",
-    "web-vitals": "1.0.1"
+    "web-vitals": "1.0.1",
+    "prettier": "2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,6 +23,13 @@
     "eject": "react-scripts eject",
     "isready": "npm run format && npm run lint && npm run test:coverage && npm run build"
   },
+  "lint-staged": {
+    "*.*": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint:staged",
   "eslintConfig": {
     "extends": [
       "react-app",
