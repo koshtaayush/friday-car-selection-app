@@ -113,6 +113,13 @@ const Vehicle: React.FC<Props> = () => {
                     secondaryMessage={'Please try again'}
                 />
             )}
+
+            {!isError && !isLoading && vehicles.length === 0 && (
+                <ScreenMessenger
+                    primaryMessage={'No vehicles found'}
+                    secondaryMessage={'Please try to search for another model'}
+                />
+            )}
         </React.Fragment>
     )
 }

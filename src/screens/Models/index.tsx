@@ -100,6 +100,13 @@ const Models: React.FC<Props> = () => {
                     secondaryMessage={'Please try again'}
                 />
             )}
+            
+            {!isError && !isLoading && models.length === 0 && (
+                <ScreenMessenger
+                    primaryMessage={'No models found'}
+                    secondaryMessage={'Please try to search for another make'}
+                />
+            )}
         </React.Fragment>
     )
 }
