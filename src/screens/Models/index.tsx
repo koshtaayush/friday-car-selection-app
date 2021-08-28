@@ -19,7 +19,9 @@ const Models: React.FC<Props> = () => {
 
     const history = useHistory()
 
-    const handleInputOnChange = (value: string) => {}
+    const handleInputOnChange = (value: string) => {
+        setSearchValue(value)
+    }
 
     const handleModelClick = (value: string) => {
         const makeValue = getQueryParams(
@@ -67,7 +69,10 @@ const Models: React.FC<Props> = () => {
 
     return (
         <React.Fragment>
-            <Search placeholder={'Search for a model'} />
+            <Search 
+                placeholder={'Search for a model'} 
+                value={searchValue} 
+                onChangeProp={handleInputOnChange} />
 
             <ModelsSection>
                 {isLoading && (
@@ -80,12 +85,15 @@ const Models: React.FC<Props> = () => {
 
                 {!isLoading && (
                     <>
-                        {models.map((modelValue, index) => {
+                        {models.filter((modelValue) => {
+                            return modelValue.toLowerCase().includes(searchValue)
+                        }).map((modelValue, index) => {
                             return (
                                 <Pill
                                     onClickProp={() =>
                                         handleModelClick(modelValue)
                                     }
+                                    key={index}
                                     value={modelValue}
                                 />
                             )
@@ -119,4 +127,5 @@ const ModelsSection = styled.div`
     align-items: center;
     flex-wrap: wrap;
     margin-top: 3rem;
+    width: calc(100% - 2rem);
 `

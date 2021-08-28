@@ -18,7 +18,9 @@ const Makes: React.FC<Props> = () => {
 
     const history = useHistory()
 
-    const handleInputOnChange = (value: string) => {}
+    const handleInputOnChange = (value: string) => {
+        setSearchValue(value)
+    }
 
     const handleMakeClick = (make: string) => {
         const makeUrl = make.toLowerCase().replace(' ', '-')
@@ -55,7 +57,11 @@ const Makes: React.FC<Props> = () => {
 
     return (
         <React.Fragment>
-            <Search placeholder={'Search for a make'} />
+            <Search 
+                placeholder={'Search for a make'} 
+                onChangeProp={handleInputOnChange} 
+                value={searchValue} />
+                
             <MakesSection>
                 {isLoading && (
                     <>
@@ -67,7 +73,9 @@ const Makes: React.FC<Props> = () => {
 
                 {!isLoading && (
                     <>
-                        {makes.map((make, index) => {
+                        {makes.filter((makeValue) => {
+                            return makeValue.toLowerCase().includes(searchValue)
+                        }).map((make, index) => {
                             return (
                                 <Pill
                                     key={index}
@@ -98,4 +106,5 @@ const MakesSection = styled.div`
     align-items: center;
     flex-wrap: wrap;
     margin-top: 3rem;
+    width: calc(100% - 2rem);
 `

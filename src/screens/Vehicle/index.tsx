@@ -164,6 +164,7 @@ const VehicleSection = styled.div`
     align-items: center;
     flex-wrap: wrap;
     margin-top: 3rem;
+    width: calc(100% - 2rem);
 `
 
 const VehicleCard = styled.div`

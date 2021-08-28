@@ -4,14 +4,13 @@ import Input from './../Input'
 
 interface Props {
     placeholder: string
+    value: string
+    onChangeProp: (value: string) => void
 }
 
 const Search: React.FC<Props> = (props) => {
-    const [searchValue, setSearchValue] = React.useState<string>('')
 
-    const { placeholder } = props;
-
-    const handleInputOnChange = (value: string) => {}
+    const { placeholder, value, onChangeProp } = props;
 
     return (
         <React.Fragment>
@@ -19,8 +18,8 @@ const Search: React.FC<Props> = (props) => {
                 <Heading>Choose your car!</Heading>
                 <InputContainer>
                     <Input
-                        onChangeProp={handleInputOnChange}
-                        inputValue={searchValue}
+                        onChangeProp={onChangeProp}
+                        inputValue={value}
                         placeHolderText={placeholder}
                     />
                 </InputContainer>
@@ -41,6 +40,7 @@ const TopSection = styled.div`
     padding-left: 2rem;
     margin-right: -2rem;
     padding-right: 2rem;
+    width: calc(100% - 1rem);
 `
 
 const Heading = styled.div`
