@@ -61,7 +61,7 @@ const Makes: React.FC<Props> = () => {
                 placeholder={'Search for a make'} 
                 onChangeProp={handleInputOnChange} 
                 value={searchValue} />
-                
+
             <MakesSection>
                 {isLoading && (
                     <>
@@ -74,7 +74,7 @@ const Makes: React.FC<Props> = () => {
                 {!isLoading && (
                     <>
                         {makes.filter((makeValue) => {
-                            return makeValue.toLowerCase().includes(searchValue)
+                            return makeValue.toLowerCase().includes(searchValue.toLowerCase())
                         }).map((make, index) => {
                             return (
                                 <Pill

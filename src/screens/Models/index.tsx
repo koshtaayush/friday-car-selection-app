@@ -86,7 +86,7 @@ const Models: React.FC<Props> = () => {
                 {!isLoading && (
                     <>
                         {models.filter((modelValue) => {
-                            return modelValue.toLowerCase().includes(searchValue)
+                            return modelValue.toLowerCase().includes(searchValue.toLowerCase())
                         }).map((modelValue, index) => {
                             return (
                                 <Pill
