@@ -50,3 +50,22 @@
 3. Unit testing setup has been done so that a TDD approach can be taken up
 4. Lazy loading to improve performance
 5. Chunking and hashing the build files generated
+
+### Screens
+
+1. Make selection
+<img width="401" alt="Screenshot 2021-08-29 at 11 15 15 AM" src="https://user-images.githubusercontent.com/14069441/131240104-e5d27808-0117-4291-9c57-433ce6996c72.png">
+
+2. Model selection
+<img width="421" alt="Screenshot 2021-08-29 at 11 15 40 AM" src="https://user-images.githubusercontent.com/14069441/131240118-a13f5c40-0d4d-4b57-809e-c1cb7d5bb549.png">
+
+
+3. Vehicle Information
+<img width="429" alt="Screenshot 2021-08-29 at 11 15 48 AM" src="https://user-images.githubusercontent.com/14069441/131240131-ae69c161-770e-458f-9218-39ccbe283164.png">
+
+
+4. Loading state
+<img width="443" alt="Screenshot 2021-08-29 at 11 16 33 AM" src="https://user-images.githubusercontent.com/14069441/131240136-b237d5b7-83b7-4ae6-9eec-25df068e5413.png">
+
+5. Error state
+<img width="412" alt="Screenshot 2021-08-29 at 11 16 19 AM" src="https://user-images.githubusercontent.com/14069441/131240147-46d9ffc7-72ed-49d6-b15d-b4b6d2eb9a36.png">
