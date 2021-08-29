@@ -46,6 +46,7 @@
 4. For using it install PM2 process manager globally in the machine using `npm install pm2 -g` 
 5. A PM2 configuration file is provided as `pm2-config.json`
 6. The app can be served using `pm2 start pm2-config.json`
+7. It will run on http://localhost:3000/
 
 ## Optimizations
 
