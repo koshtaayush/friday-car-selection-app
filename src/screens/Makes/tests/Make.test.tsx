@@ -36,7 +36,7 @@ describe('Make', () => {
         )
     })
 
-    test('Should show loader when loading state is false', () => {
+    test('Should not show loader when loading state is false', () => {
         const initialStateForLoading = false
         const initialStateForSearchValue = ''
         const initialStateForMakes = []
@@ -70,5 +70,41 @@ describe('Make', () => {
         const component = shallow(<Make />)
 
         expect(component.find({ 'test-id': 'makeError' })).toHaveLength(1)
+    })
+    
+    test('Should show proper results after search', () => {
+        const initialStateForLoading = false
+        const initialStateForSearchValue = 'bm'
+        const initialStateForMakes = ['Cadillac', 'Mini (Bmw)', 'Bmw']
+        const initialStateForIsError = false
+
+        React.useState = jest
+            .fn()
+            .mockReturnValueOnce([initialStateForLoading, {}])
+            .mockReturnValueOnce([initialStateForSearchValue, {}])
+            .mockReturnValueOnce([initialStateForMakes, {}])
+            .mockReturnValueOnce([initialStateForIsError, {}])
+
+        const component = shallow(<Make />)
+
+        expect(component.find({ 'test-id': 'makePill' })).toHaveLength(2)
+    })
+    
+    test('Should show all results if search is empty', () => {
+        const initialStateForLoading = false
+        const initialStateForSearchValue = ''
+        const initialStateForMakes = ['Cadillac', 'Mini (Bmw)', 'Bmw']
+        const initialStateForIsError = false
+
+        React.useState = jest
+            .fn()
+            .mockReturnValueOnce([initialStateForLoading, {}])
+            .mockReturnValueOnce([initialStateForSearchValue, {}])
+            .mockReturnValueOnce([initialStateForMakes, {}])
+            .mockReturnValueOnce([initialStateForIsError, {}])
+
+        const component = shallow(<Make />)
+
+        expect(component.find({ 'test-id': 'makePill' })).toHaveLength(3)
     })
 })

@@ -101,6 +101,7 @@ const Makes: React.FC<Props> = () => {
                                     key={index}
                                     onClickProp={() => handleMakeClick(make)}
                                     value={make}
+                                    test-id="makePill"
                                 />
                             )
                         })}

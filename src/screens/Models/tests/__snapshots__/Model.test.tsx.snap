@@ -11,6 +11,7 @@ exports[`Model Should match the snapshot 1`] = `
   <ScreenMessenger
     primaryMessage="No models found"
     secondaryMessage="Please try to search for another make"
+    test-id="modelNotFound"
   />
 </Fragment>
 `;

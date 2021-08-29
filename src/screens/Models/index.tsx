@@ -113,6 +113,7 @@ const Models: React.FC<Props> = () => {
                                     }
                                     key={index}
                                     value={modelValue}
+                                    test-id="modelPill"
                                 />
                             )
                         })}
@@ -130,6 +131,7 @@ const Models: React.FC<Props> = () => {
             
             {!isError && !isLoading && models.length === 0 && (
                 <ScreenMessenger
+                    test-id='modelNotFound'
                     primaryMessage={'No models found'}
                     secondaryMessage={'Please try to search for another make'}
                 />
