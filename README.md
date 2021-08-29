@@ -42,6 +42,10 @@
 
 1. The production build folder can be generted using `npm run build`
 2. It will create a build folder. You may serve it with a static server, which can be served therogh any process manager ex: PM2, forever
+3. Currently it is being served using express server, the configs are written in `server.js` file
+4. For using it install PM2 process manager globally in the machine using `npm install pm2 -g` 
+5. A PM2 configuration file is provided as `pm2-config.json`
+6. The app can be served using `pm2 start pm2-config.json`
 
 ## Optimizations
 

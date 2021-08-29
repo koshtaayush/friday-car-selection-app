@@ -1,0 +1,8 @@
+{
+    "apps": [
+        {
+            "name": "friday_car_selection_app",
+            "script": "server.js"
+        }
+    ]
+}
