@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Friday Code Challenge : Car Selection App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Getting Started
 
-## Available Scripts
+* This project was bootstrapped with `Create React App + Typescript`
+* The following version has been used for this application 
+* The **node version used** : `v10.16.3`
+* The **npm version used** : `6.9.0`
 
-In the project directory, you can run:
+## Running the project in your local
 
-### `yarn start`
+1. Ensure you have nodeJS (the version specified above installed)
+2. Clone the project, by executing `git clone https://github.com/koshtaayush/friday-car-selection-app.git`
+3. Run into the root of the folder and execute `npm install`
+4. Bring up the apiserver by executing `node apiserver/server.js ` in the root directory of the project
+5. Run `npm start` in the root directory of the project
+6. The project should be up and running. Open http://localhost:3000/
+7. The page will reload if you make edits.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Testing
 
-### `yarn test`
+* For unit testing `jest` framework has been used along with `enzyme`. 
+* To execute the unit test cases, please run `npm run test`. This will run all the test in watch mode.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Approach for problem the code solution is trying to solve.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. The user will land to the first screen which will list down all the makes which are available
+2. The UI is completely functional for both mobile and desktop
+3. For ease of access a search box has been provided in case user wants to search, which makes the selection easier
+4. On clicking of make, he is navigated to the next screen which lists down the models available for make.
+5. The search box can be used to filter results
+6. On selection of model, a vehicle lists opens up which gives details of vehicles.
+7. The url of the project contains the make and model as query params, in case the user wants to directly replace the values there
+8. Ex: `http://localhost:3000/vehicle?make=bmw&model=3er`
+9. The components have been loaded lazily for better performance and faster loading
+10. Loading screen has been provided in case the network speed is slow, so that the user experience is good.
+11. The code has been made modular keeping in mind the time frame provided for the task.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Production Build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. The production build folder can be generted using `npm run build`
+2. It will create a build folder. You may serve it with a static server, which can be served therogh any process manager ex: PM2, forever
 
-### `yarn eject`
+## Optimizations
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Typescript has been used for the type checkings so that most of the errors can be caught on development phase itself
+2. Linting and pre-commit hooks have been used to follow the code quality and a same pattern
+3. Unit testing setup has been done so that a TDD approach can be taken up
+4. Lazy loading to improve performance
+5. Chunking and hashing the build files generated

@@ -8,4 +8,3 @@ test('renders the component', () => {
 
 });
 
-// https://www.behance.net/gallery/125129425/Car-Rental-Mobile-App?tracking_source=search_projects_recommended%7Ccar%20app

@@ -57,7 +57,7 @@ const Vehicle: React.FC<Props> = () => {
 
         setModelSelected(modelValue)
 
-        let url = FETCH_VEHICLE + `?make=${makeValue}` + `&model=${modelValue}`
+        let url = FETCH_VEHICLE + `?make=${makeValue}&model=${modelValue}`
 
         setIsLoading(true)
         makeGet(url)
